@@ -189,7 +189,10 @@ public class JFrameCalculadora extends JFrame {
 		botao_limpar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtNumber.setText(" ");
+				limpar();
+				operacao = Operacao.NENHUMA;
+				valor1 = 0;
+				valor2 = 0;
 			}
 		});
 		botao_limpar.setFont(new Font("Tahoma", Font.PLAIN, 10));
@@ -310,9 +313,13 @@ public class JFrameCalculadora extends JFrame {
 				break;
 			case DIVISAO:
 				valor1 = valor1/valor2;
+				if (valor2 != 0) {
+					valor1 = valor1/valor2;
+				}
 				break;
 			case MULTIPLICACAO:
 				valor1 = valor1*valor2;
+				break;
 		}
 		txtNumber.setText(String.valueOf(valor1));
 		limpar = true;
