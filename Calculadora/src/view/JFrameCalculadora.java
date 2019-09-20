@@ -315,6 +315,8 @@ public class JFrameCalculadora extends JFrame {
 				valor1 = valor1/valor2;
 				if (valor2 != 0) {
 					valor1 = valor1/valor2;
+				} else {
+					txtNumber.setText("Impossível");
 				}
 				break;
 			case MULTIPLICACAO:
