@@ -25,6 +25,7 @@ public class JFrameCalculadora extends JFrame {
 	private double valor1, valor2;
 	private Operacao operacao = Operacao.NENHUMA;
 	private boolean limpar;
+	private int auxiliar;
 
 	private JPanel contentPane;
 	private JTextField txtNumber;
@@ -64,9 +65,8 @@ public class JFrameCalculadora extends JFrame {
 		txtNumber.setColumns(10);
 		
 		JButton botao_7 = new JButton("7");
-		botao_7.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		botao_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				limpar();
 				txtNumber.setText(txtNumber.getText() + "7");
 			}
@@ -74,9 +74,8 @@ public class JFrameCalculadora extends JFrame {
 		botao_7.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		JButton botao_8 = new JButton("8");
-		botao_8.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		botao_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				limpar();
 				txtNumber.setText(txtNumber.getText() + "8");
 			}
@@ -84,9 +83,8 @@ public class JFrameCalculadora extends JFrame {
 		botao_8.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		JButton botao_9 = new JButton("9");
-		botao_9.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		botao_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				limpar();
 				txtNumber.setText(txtNumber.getText() + "9");
 			}
@@ -94,10 +92,9 @@ public class JFrameCalculadora extends JFrame {
 		botao_9.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		JButton botao_mais = new JButton("+");
-		botao_mais.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				valor2 = Double.parseDouble(txtNumber.getText());
+		botao_mais.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				valor1 = Double.parseDouble(txtNumber.getText());
 				operacao = Operacao.SOMA;
 				operar();
 			}
@@ -105,9 +102,8 @@ public class JFrameCalculadora extends JFrame {
 		botao_mais.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		JButton botao_4 = new JButton("4");
-		botao_4.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		botao_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				limpar();
 				txtNumber.setText(txtNumber.getText() + "4");
 			}
@@ -115,9 +111,8 @@ public class JFrameCalculadora extends JFrame {
 		botao_4.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		JButton botao_5 = new JButton("5");
-		botao_5.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		botao_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				limpar();
 				txtNumber.setText(txtNumber.getText() + "5");
 			}
@@ -125,9 +120,8 @@ public class JFrameCalculadora extends JFrame {
 		botao_5.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		JButton botao_6 = new JButton("6");
-		botao_6.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		botao_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				limpar();
 				txtNumber.setText(txtNumber.getText() + "6");
 			}
@@ -135,10 +129,9 @@ public class JFrameCalculadora extends JFrame {
 		botao_6.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		JButton botao_menos = new JButton("-");
-		botao_menos.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				valor2 = Double.parseDouble(txtNumber.getText());
+		botao_menos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				valor1 = Double.parseDouble(txtNumber.getText());
 				operacao = Operacao.SUBTRACAO;
 				operar();
 			}
@@ -146,9 +139,8 @@ public class JFrameCalculadora extends JFrame {
 		botao_menos.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		JButton botao_1 = new JButton("1");
-		botao_1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		botao_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				limpar();
 				txtNumber.setText(txtNumber.getText() + "1");
 			}
@@ -156,9 +148,8 @@ public class JFrameCalculadora extends JFrame {
 		botao_1.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		JButton botao_2 = new JButton("2");
-		botao_2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		botao_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				limpar();
 				txtNumber.setText(txtNumber.getText() + "2");
 			}
@@ -166,9 +157,8 @@ public class JFrameCalculadora extends JFrame {
 		botao_2.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		JButton botao_3 = new JButton("3");
-		botao_3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		botao_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				limpar();
 				txtNumber.setText(txtNumber.getText() + "3");
 			}
@@ -176,9 +166,8 @@ public class JFrameCalculadora extends JFrame {
 		botao_3.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		JButton botao_0 = new JButton("0");
-		botao_0.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		botao_0.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				limpar();
 				txtNumber.setText(txtNumber.getText() + "0");
 			}
@@ -186,9 +175,8 @@ public class JFrameCalculadora extends JFrame {
 		botao_0.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		JButton botao_limpar = new JButton("C");
-		botao_limpar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		botao_limpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				limpar();
 				operacao = Operacao.NENHUMA;
 				valor1 = 0;
@@ -198,48 +186,47 @@ public class JFrameCalculadora extends JFrame {
 		botao_limpar.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		JButton botao_igual = new JButton("=");
-		botao_igual.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		botao_igual.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				auxiliar = 0;
 				valor2 = Double.parseDouble(txtNumber.getText());
 				operar();
 				operacao = Operacao.NENHUMA;
+				valor1 = 0;
+				valor2 = 0;
 			}
 		});
-		botao_igual.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		botao_igual.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		botao_igual.setFont(new Font("Dialog", Font.PLAIN, 10));
 		
 		JButton botao_mult = new JButton("*");
-		botao_mult.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				valor2 = Double.parseDouble(txtNumber.getText());
+		botao_mult.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				auxiliar = 1;
+				valor1 = Double.parseDouble(txtNumber.getText());
 				operacao = Operacao.MULTIPLICACAO;
 				operar();
 			}
 		});
 		botao_mult.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
-		JButton btnNewButton = new JButton("/");
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				valor2 = Double.parseDouble(txtNumber.getText());
+		JButton botao_divisao = new JButton("/");
+		botao_divisao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				auxiliar = 1;
+				valor1 = Double.parseDouble(txtNumber.getText());
 				operacao = Operacao.DIVISAO;
 				operar();
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		botao_divisao.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(121)
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(txtNumber)
+					.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+						.addComponent(txtNumber, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
 								.addComponent(botao_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -247,55 +234,61 @@ public class JFrameCalculadora extends JFrame {
 								.addComponent(botao_4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(botao_7, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(botao_8, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(botao_5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(botao_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(botao_igual, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+								.addComponent(botao_8, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+								.addComponent(botao_5, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+								.addComponent(botao_2, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+								.addComponent(botao_limpar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
 								.addComponent(botao_6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(botao_9, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(botao_3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(botao_limpar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addComponent(botao_igual, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_panel.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(botao_menos, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(botao_mult, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(botao_mais))))
-					.addContainerGap(122, Short.MAX_VALUE))
+							.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+								.addComponent(botao_mult, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+								.addComponent(botao_menos, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+								.addComponent(botao_mais, Alignment.LEADING)
+								.addComponent(botao_divisao, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))))
+					.addGap(135))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(7)
+					.addGap(20)
 					.addComponent(txtNumber, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(botao_7)
 						.addComponent(botao_8)
 						.addComponent(botao_9)
-						.addComponent(btnNewButton))
+						.addComponent(botao_mais))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(botao_4)
 						.addComponent(botao_5)
 						.addComponent(botao_6)
-						.addComponent(botao_mult))
+						.addComponent(botao_menos, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 						.addComponent(botao_1)
 						.addComponent(botao_2)
 						.addComponent(botao_3)
-						.addComponent(botao_menos, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
-					.addGap(6)
-					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
-						.addComponent(botao_0)
-						.addComponent(botao_igual, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-						.addComponent(botao_limpar)
-						.addComponent(botao_mais))
-					.addContainerGap(68, Short.MAX_VALUE))
+						.addComponent(botao_divisao))
+					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel.createSequentialGroup()
+							.addGap(6)
+							.addComponent(botao_0))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(botao_limpar))
+						.addGroup(gl_panel.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+								.addComponent(botao_igual, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+								.addComponent(botao_mult))))
+					.addContainerGap(94, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 	}
@@ -312,15 +305,16 @@ public class JFrameCalculadora extends JFrame {
 				valor1 = valor1-valor2;
 				break;
 			case DIVISAO:
-				valor1 = valor1/valor2;
-				if (valor2 != 0) {
+				if (valor2 != 0 && auxiliar == 0) {
 					valor1 = valor1/valor2;
 				} else {
-					txtNumber.setText("Impossível");
+					txtNumber.setText("ImpossÃ­vel");
 				}
 				break;
 			case MULTIPLICACAO:
-				valor1 = valor1*valor2;
+				if (auxiliar == 0) {
+					valor1 = valor1*valor2;
+				}	
 				break;
 		}
 		txtNumber.setText(String.valueOf(valor1));
@@ -329,7 +323,7 @@ public class JFrameCalculadora extends JFrame {
 	
 	public void limpar() {
 		if (limpar) {
-			txtNumber.setText("");
+			txtNumber.setText(String.valueOf(""));
 		}
 		limpar = false;
 	}
