@@ -16,8 +16,7 @@ public class JFrameCalculadora extends JFrame {
 	private double valor1, valor2;
 	private Operacao operacao = Operacao.NENHUMA;
 	private boolean limpar;
-	private int auxiliar;
-
+	private boolean auxiliar;
 	private JPanel contentPane;
 	private JTextField txtNumber;
 
@@ -41,6 +40,7 @@ public class JFrameCalculadora extends JFrame {
 	 * Create the frame.
 	 */
 	public JFrameCalculadora() {
+		setTitle("Calculadora - Vers\u00E3o 0.5");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 310, 320);
 		contentPane = new JPanel();
@@ -195,9 +195,14 @@ public class JFrameCalculadora extends JFrame {
 		botao_igual.setBounds(143, 211, 58, 32);
 		botao_igual.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				auxiliar = 0;
+				auxiliar = false;
 				valor2 = Double.parseDouble(txtNumber.getText());
-				operar();
+				if (validaDivisao()) {
+					operar();
+				} else {
+					txtNumber.setText("Impossível");
+					limpar = true;
+				}
 				operacao = Operacao.NENHUMA;
 				valor1 = 0;
 				valor2 = 0;
@@ -209,7 +214,7 @@ public class JFrameCalculadora extends JFrame {
 		botao_mult.setBounds(211, 211, 58, 32);
 		botao_mult.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				auxiliar = 1;
+				auxiliar = true;
 				valor1 = Double.parseDouble(txtNumber.getText());
 				operacao = Operacao.MULTIPLICACAO;
 				operar();
@@ -221,7 +226,7 @@ public class JFrameCalculadora extends JFrame {
 		botao_divisao.setBounds(211, 168, 58, 32);
 		botao_divisao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				auxiliar = 1;
+				auxiliar = true;
 				valor1 = Double.parseDouble(txtNumber.getText());
 				operacao = Operacao.DIVISAO;
 				operar();
@@ -260,14 +265,14 @@ public class JFrameCalculadora extends JFrame {
 			valor1 = valor1 - valor2;
 			break;
 		case DIVISAO:
-			if (valor2 != 0 && auxiliar == 0) {
+			if (validaDivisao() && auxiliar == false) {
 				valor1 = valor1 / valor2;
 			} else {
-				txtNumber.setText("ImpossÃ­vel");
+				txtNumber.setText("Impossível");
 			}
 			break;
 		case MULTIPLICACAO:
-			if (auxiliar == 0) {
+			if (auxiliar == false) {
 				valor1 = valor1 * valor2;
 			}
 			break;
@@ -281,6 +286,13 @@ public class JFrameCalculadora extends JFrame {
 			txtNumber.setText(String.valueOf(""));
 		}
 		limpar = false;
+	}
+
+	public boolean validaDivisao() {
+		if (operacao == Operacao.DIVISAO && valor2 == 0) {
+			return false;
+		}
+		return true;
 	}
 
 }
