@@ -19,6 +19,7 @@ public class JFrameCalculadora extends JFrame {
 	private boolean auxiliar;
 	private JPanel contentPane;
 	private JTextField txtNumber;
+	private final String err_div = "Erro - Divisão por Zero";
 
 	/**
 	 * Launch the application.
@@ -40,7 +41,7 @@ public class JFrameCalculadora extends JFrame {
 	 * Create the frame.
 	 */
 	public JFrameCalculadora() {
-		setTitle("Calculadora - Vers\u00E3o 0.6");
+		setTitle("Calculadora - Vers\u00E3o 0.7");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 310, 320);
 		contentPane = new JPanel();
@@ -224,7 +225,7 @@ public class JFrameCalculadora extends JFrame {
 				if (validaDivisao()) {
 					operar();
 				} else {
-					txtNumber.setText("Imposs�vel");
+					txtNumber.setText(err_div);
 					limpar = true;
 				}
 				operacao = Operacao.NENHUMA;
